@@ -20,6 +20,7 @@ public class NonCompliant02Test {
 
     @Test
     public void normalChars() {
+        Locale.setDefault(Locale.TRADITIONAL_CHINESE);
         String input = "SCRIPT";
         boolean result = compliant.processTag(input);
         assertTrue(result, "The string contains 'SCRIPT'");
