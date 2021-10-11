@@ -13,6 +13,6 @@ public class NonCompliantTest16 {
 
     @Test
     public void testWeirdCharacters() {
-        String dir = "!@*%*#$%&&*$#";
+        String dir = "1</quantity><price>1.0</price><quantity>1";
     }
 }

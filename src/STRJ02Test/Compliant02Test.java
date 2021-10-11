@@ -21,8 +21,16 @@ public class Compliant02Test {
 
     @Test
     public void noScript() {
-        String input = "SCRİPT";
+        String input = "script";
         boolean result = compliant.processTag(input);
-        assertFalse(result, "The string contains 'SCRIPT'");
+        assertTrue(result, "The string contains 'SCRIPT'");
     }
+
+    @Test
+    public void noContent() {
+        String input = "<script></script>";
+        boolean result = compliant.processTag(input);
+        assertTrue(result, "The string contains 'SCRIPT'");
+    }
+
 }
