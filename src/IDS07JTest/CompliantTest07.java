@@ -2,14 +2,14 @@ package IDS07JTest;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import IDS07J.Compliant;
+import IDS07J.Compliant07;
 
-public class CompliantTest {
-    private Compliant compliant;
+public class CompliantTest07 {
+    private Compliant07 compliant;
 
     @BeforeEach
     void setUp() throws Exception {
-        compliant = new Compliant();
+        compliant = new Compliant07();
     }
 
     @Test

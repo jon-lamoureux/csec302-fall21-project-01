@@ -1,15 +1,14 @@
 package IDS07JTest;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import IDS07J.NonCompliant;
+import IDS07J.NonCompliant07;
 
-public class NonCompliantTest {
-    private NonCompliant nonCompliant;
+public class NonCompliantTest07 {
+    private NonCompliant07 nonCompliant;
 
     @BeforeEach
     void setUp() throws Exception {
-        nonCompliant = new NonCompliant();
+        nonCompliant = new NonCompliant07();
     }
 
     @Test

@@ -1,4 +1,4 @@
 package IDS11J;
 
-public class Compliant {
+public class Compliant11 {
 }

@@ -1,2 +1,4 @@
-package IDS16J;public class Compliant16 {
+package IDS16J;
+
+public class Compliant16 {
 }

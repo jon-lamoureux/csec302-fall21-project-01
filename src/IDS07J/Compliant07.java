@@ -3,7 +3,7 @@ package IDS07J;
 import java.io.InputStream;
 import java.util.regex.Pattern;
 
-public class Compliant {
+public class Compliant07 {
     public static void main(String[] args) throws Exception {
         String dir = System.getProperty("dir");
         Runtime rt = Runtime.getRuntime();

@@ -1,4 +1,4 @@
 package IDS11J;
 
-public class NonCompliant {
+public class NonCompliant11 {
 }

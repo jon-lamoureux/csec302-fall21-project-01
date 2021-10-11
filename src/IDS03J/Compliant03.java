@@ -5,13 +5,17 @@ import java.util.logging.Logger;
 import java.util.logging.*;
 import java.util.regex.Pattern;
 
-public class Compliant {
+public class Compliant03 {
     String username = "Guest";
+    Boolean loginSuccessful = false;
     private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public void generateLog() {
-        // add some code of your choice here
-        // Moving to the logging part now
         LOGGER.log(Level.INFO, "Log message");
+        if (loginSuccessful) {
+            LOGGER.severe("User login succeeded for: " + sanitizeUser(username));
+        } else {
+            LOGGER.severe("User login failed for: " + sanitizeUser(username));
+        }
     }
     public String sanitizeUser(String username) {
         return Pattern.matches("[A-Za-z0-9_]+", username) ? username : "unauthorized user";

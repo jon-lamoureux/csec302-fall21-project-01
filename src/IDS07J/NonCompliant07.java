@@ -1,7 +1,7 @@
 package IDS07J;
 import java.io.InputStream;
 
-public class NonCompliant {
+public class NonCompliant07 {
     public static void main(String[] args) throws Exception {
         String dir = System.getProperty("dir");
         Runtime rt = Runtime.getRuntime();

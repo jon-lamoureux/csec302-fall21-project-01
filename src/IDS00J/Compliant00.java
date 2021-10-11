@@ -1,21 +1,19 @@
 package IDS00J;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-class Compliant {
+public class Compliant00 {
+    private System PropertyManager;
+
     public Connection getConnection() throws SQLException {
         DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-        String dbConnection = PropertyManager.getProperty("db.connection");
         // Can hold some value like
-        // "jdbc:microsoft:sqlserver://<HOST>:1433,<UID>,<PWD>" 
-        return DriverManager.getConnection(dbConnection);
+        // "jdbc:microsoft:sqlserver://<HOST>:1433,<UID>,<PWD>"
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/demodb","admin","MySQLpassword");
     }
 
     String hashPassword(char[] password) {
         // Create hash of password
+        return "password";
     }
 
     public void doPrivilegedAction(
