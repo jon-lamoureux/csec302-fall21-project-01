@@ -14,5 +14,9 @@ public class CompliantTest16 {
     @Test
     public void testWeirdCharacters() {
         String dir = "!@*%*#$%&*$%&*$#";
+
+
     }
+
+
 }
