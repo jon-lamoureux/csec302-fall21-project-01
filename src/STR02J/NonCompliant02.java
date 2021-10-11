@@ -25,5 +25,5 @@ public class NonCompliant02 {
         }
     }
 }
-}
+
 
