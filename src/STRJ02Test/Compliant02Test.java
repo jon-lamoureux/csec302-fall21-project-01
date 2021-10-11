@@ -7,6 +7,7 @@ import STR02J.Compliant02;
 import java.text.DateFormat;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.Locale;
 
 public class Compliant02Test {
     private Compliant02 compliant;
@@ -25,6 +26,7 @@ public class Compliant02Test {
 
     @Test
     public void noScript() {
+        Locale.setDefault(Locale.TRADITIONAL_CHINESE);
         String input = "script";
         boolean result = compliant.processTag(input);
         assertTrue(result, "The string contains 'SCRIPT'");
@@ -32,7 +34,7 @@ public class Compliant02Test {
 
     @Test
     public void noContent() {
-        String input = "<script></script>";
+        String input = "";
         boolean result = compliant.processTag(input);
         assertTrue(result, "The string contains 'SCRIPT'");
     }
@@ -54,9 +56,10 @@ public class Compliant02Test {
 
     @Test
     public void notADate() {
+        Locale.setDefault(Locale.TRADITIONAL_CHINESE);
         Date date = java.util.Calendar.getInstance().getTime();
         System.out.println(date);
         boolean result = compliant.isOctober(date);
-        assertNotNull(result, "It is October!");
+        assertTrue(result, "It is October!");
     }
 }

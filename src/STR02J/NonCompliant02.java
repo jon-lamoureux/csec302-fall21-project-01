@@ -7,7 +7,7 @@ import java.util.Locale;
 
 public class NonCompliant02 {
     public static boolean processTag(String tag) {
-        if (tag.toUpperCase(Locale.ENGLISH).equals("SCRIPT")) {
+        if (tag.equals("SCRIPT")) {
             return true;
         } else {
             return false;
@@ -24,6 +24,5 @@ public class NonCompliant02 {
             return false;
         }
     }
-}
 }
 

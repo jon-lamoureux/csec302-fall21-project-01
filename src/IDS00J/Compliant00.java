@@ -12,7 +12,6 @@ public class Compliant00 {
     }
 
     String hashPassword(char[] password) {
-        // Create hash of password
         return "password";
     }
 
@@ -22,6 +21,7 @@ public class Compliant00 {
         Connection connection = getConnection();
         if (connection == null) {
             // Handle error
+            System.out.println("ERROR: Connection failed");
         }
         try {
             String pwd = hashPassword(password);

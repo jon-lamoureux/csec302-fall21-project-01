@@ -13,8 +13,9 @@ public class Compliant02 {
             return false;
         }
     }
+
     public static boolean isOctober(Date date) {
-        String myString = DateFormat.getDateInstance().format(date);
+        String myString = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.US).format(date);
         System.out.println("The date is " + myString);
         if (myString.startsWith("Oct ")) {
             System.out.println("It is October!");
@@ -25,4 +26,3 @@ public class Compliant02 {
         }
    }
 }
-

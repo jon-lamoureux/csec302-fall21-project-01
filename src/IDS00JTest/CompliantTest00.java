@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import IDS00J.Compliant00;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class CompliantTest00 {
     private Compliant00 compliant;
 
@@ -12,9 +15,4 @@ public class CompliantTest00 {
         compliant = new Compliant00();
     }
 
-    @Test
-    void testStringReplacement() {
-        String dir = "#$%*&^$#^#$%^";
-        assertEquals(dir, "Strings should be replaced");
-    }
 }
