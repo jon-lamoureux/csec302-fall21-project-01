@@ -14,10 +14,33 @@ public class CompliantTest00 {
     void setUp() throws Exception {
         compliant = new Compliant00();
     }
+
     @Test
-    void testConnection() throws SQLException {
-        String result = compliant.doPrivilegedAction("username", "password");
+    void validConnection() throws SQLException {
+        String result = compliant.doPrivilegedAction("user", "password");
         System.out.println(result);
-        assertNotNull(result, "Strings should be replaced");
+        assertNotNull(result, "Logged in");
     }
+
+    @Test
+    void invalidConnection() throws SQLException {
+        String result = compliant.doPrivilegedAction("baduser", "badpass");
+        System.out.println(result);
+        assertNotNull(result, "Logged in");
+    }
+
+    @Test
+    void sqlInjection() throws SQLException {
+        String result = compliant.doPrivilegedAction("user' OR '1'='1", "o");
+        System.out.println(result);
+        assertNotNull(result, "Logged in");
+    }
+
+    @Test
+    void sqlBadInjection() throws SQLException {
+        String result = compliant.doPrivilegedAction("ood' OR '1'='1", "o");
+        System.out.println(result);
+        assertNotNull(result, "Logged in");
+    }
+
 }

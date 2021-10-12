@@ -15,10 +15,11 @@ public class Compliant00 {
         }
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String sqlString = "select * from db_user where username=" +
-                    username + " and password =" + password;
+            String sqlString =
+                    "select * from db_user where username=? and password=?";
             PreparedStatement stmt = conn.prepareStatement(sqlString);
-
+            stmt.setString(1, username);
+            stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
             if (!rs.next()) {
                 throw new SecurityException("User name or password incorrect");
