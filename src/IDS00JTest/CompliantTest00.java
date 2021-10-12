@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import IDS00J.Compliant00;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public class CompliantTest00 {
     private Compliant00 compliant;
@@ -14,5 +14,10 @@ public class CompliantTest00 {
     void setUp() throws Exception {
         compliant = new Compliant00();
     }
-
+    @Test
+    void testConnection() throws SQLException {
+        String result = compliant.doPrivilegedAction("username", "password");
+        System.out.println(result);
+        assertNotNull(result, "Strings should be replaced");
+    }
 }
