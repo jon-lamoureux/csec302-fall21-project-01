@@ -1,7 +1,8 @@
 package IDS07JTest;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import IDS07J.Compliant07;
 
 public class CompliantTest07 {
@@ -13,8 +14,25 @@ public class CompliantTest07 {
     }
 
     @Test
-    void testStringReplacement() {
-        String dir = "#$%*&^$#^#$%^";
-        assertEquals(dir, "Strings should be replaced");
+    public void testValid() throws Exception {
+        Boolean result = compliant.performRuntime("src");
+        assertTrue(result);
+    }
+
+    @Test
+    public void testInvalid() throws Exception {
+        Boolean result = compliant.performRuntime("");
+        assertTrue(result);
+    }
+    @Test
+    public void testExploit() throws Exception {
+        Boolean result = compliant.performRuntime("adfasdf & echo Illegal Text");
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIP() throws Exception {
+        Boolean result = compliant.performRuntime("src & ipconfig");
+        assertTrue(result);
     }
 }

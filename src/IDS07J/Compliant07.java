@@ -1,17 +1,22 @@
 package IDS07J;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.regex.Pattern;
 
 public class Compliant07 {
-    public static void main(String[] args) throws Exception {
-        String dir = System.getProperty("dir");
+    public static Boolean performRuntime(String input) throws Exception {
+        File dir = new File(input);
+        if (!dir.isDirectory()) {
+            System.out.println("Not a directory");
+            return false;
+        } else {
+            for (String file : dir.list()) {
+                System.out.println(file);
+            }
+        }
         Runtime rt = Runtime.getRuntime();
         Process proc = rt.exec("cmd.exe /C dir " + dir);
-        if (!Pattern.matches("[0-9A-Za-z@.]+", dir)) {
-            System.out.println("process error: illegal input");
-            return;
-        }
         int result = proc.waitFor();
         if (result != 0) {
             System.out.println("process error: " + result);
@@ -23,5 +28,6 @@ public class Compliant07 {
             System.out.print((char) c);
         }
         Boolean completed = true;
+        return true;
     }
 }
