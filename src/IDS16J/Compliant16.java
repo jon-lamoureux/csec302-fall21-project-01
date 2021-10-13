@@ -5,13 +5,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class Compliant16 {
-    private static void createXMLStream(final BufferedOutputStream outStream,
-                                        final String quantity) throws IOException, NumberFormatException {
+    public static String createXMLStream(final String quantity) throws IOException, NumberFormatException {
         // Write XML string only if quantity is an unsigned integer (count).
-        int count = Integer.parseUnsignedInt(quantity);
-        String xmlString = "<item>\n<description>Widget</description>\n"
+        int count;
+        try {
+            count = Integer.parseUnsignedInt(quantity);
+        }
+        catch (java.lang.NumberFormatException e){
+            return "<item>\n<description>Widget</description>\n"
+                    + "<price>500</price>\n" + "<quantity>0</quantity></item>";
+        }
+        return "<item>\n<description>Widget</description>\n"
                 + "<price>500</price>\n" + "<quantity>" + count + "</quantity></item>";
-        outStream.write(xmlString.getBytes());
-        outStream.flush();
     }
 }

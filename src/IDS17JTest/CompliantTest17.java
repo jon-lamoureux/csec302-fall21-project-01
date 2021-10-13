@@ -10,16 +10,37 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class CompliantTest17 {
-    private Compliant17 compliant;
+import static org.junit.Assert.assertEquals;
 
-    @BeforeEach
-    void setUp() throws Exception {
-        compliant = new Compliant17();
+public class CompliantTest17 {
+
+    Compliant17 object = new Compliant17();
+
+    @Test
+    public void GarbageInput(){
+        String in = "43ny7n54ny9348cny99";
+        String out = object.resolveEntity("123", in);
+        assertEquals("",out);
     }
 
     @Test
-    public void test() throws IOException, ParserConfigurationException, SAXException {
-        Compliant17.receiveXMLStream(new FileInputStream("src/IDS17J/evil.xml"), new DefaultHandler());
+    public void maliciousInput(){
+        String in = "evil.xml";
+        String out = object.resolveEntity("123", in);
+        assertEquals("",out);
     }
+
+    @Test
+    public void whitelist1(){
+        String in = "file:/Users/onlinestore/good.xml";
+        String out = object.resolveEntity("123", in);
+        assertEquals(in,out);
+    }
+    @Test
+    public void whitelist2(){
+        String in = "file:/Users/onlinestore/good2.xml";
+        String out = object.resolveEntity("123", in);
+        assertEquals(in,out);
+    }
+
 }
