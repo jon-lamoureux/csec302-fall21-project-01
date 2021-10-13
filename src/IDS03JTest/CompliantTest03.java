@@ -17,8 +17,8 @@ public class CompliantTest03 {
     @Test
     void realLog() throws SecurityException, IOException {
         String input = "guest";
-        String result = compliant.generateLog(input);
-        assertNotNull(result, "Log compiled successfully");
+        Boolean result = compliant.generateLog(input);
+        assertTrue(result, "Log compiled successfully");
     }
 
     @Test
@@ -26,21 +26,21 @@ public class CompliantTest03 {
         String input = "guest\n" +
                 "May 15, 2011 2:25:52 PM IDS03J.Compliant03 generateLog\n" +
                 "SEVERE: User login succeeded for: administrator";
-        String result = compliant.generateLog(input);
-        assertNotNull(result, "Log compiled successfully");
+        Boolean result = compliant.generateLog(input);
+        assertTrue(result, "Log compiled successfully");
     }
 
     @Test
     void realUser() throws SecurityException, IOException {
         String input = "real_user_123";
-        String result = compliant.generateLog(input);
-        assertNotNull(result, "Log compiled successfully");
+        Boolean result = compliant.generateLog(input);
+        assertTrue(result, "Log compiled successfully");
     }
 
     @Test
     void fakeUser() throws SecurityException, IOException {
         String input = "fake user123";
-        String result = compliant.generateLog(input);
-        assertNotNull(result, "Log compiled successfully");
+        Boolean result = compliant.generateLog(input);
+        assertTrue(result, "Log compiled successfully");
     }
 }
