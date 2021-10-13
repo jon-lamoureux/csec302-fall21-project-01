@@ -14,6 +14,7 @@ public class Compliant03 {
         } else {
             LOGGER.severe("User login failed for: " + sanitizeUser(input));
         }
+        // check if user was replaced or not
         if (sanitized == "unauthorized user") {
             return false;
         } else {
